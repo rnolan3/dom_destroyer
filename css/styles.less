@@ -1,0 +1,253 @@
+@transparentBackground: 		rgba(240, 240, 240, 0.95);
+@darkTransparentBackground: rgba(0, 0, 0, 0.8);
+
+// Typeface
+@fontFamily: 'exomedium', sans-serif;
+
+// Colors
+@orange:    #F15A24;
+@blue:      #0071BC;
+
+@linkColor: @blue;
+
+
+// z-index
+@zIndexDefault: 10000;
+
+.center-block() {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.default-child-properties() {
+	* {
+		font-family: @fontFamily;
+		-moz-box-sizing: border-box; 
+		-webkit-box-sizing: border-box; 
+		box-sizing: border-box;
+		letter-spacing: 0;
+	}
+}
+
+#challenge-dialog-wrapper {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: @transparentBackground;
+	z-index: @zIndexDefault;
+	text-align: center;	
+
+	.default-child-properties();
+
+	#hero {
+		.center-block();
+		height: 30%;
+		width: auto !important;
+		margin-top: 10%;
+		position: relative;
+		min-width: 0% !important;
+		max-width: 100% !important;
+	}
+}
+
+#challenge-start-button {
+	font-family: @fontFamily !important;
+	font-size: 14px !important;
+	text-align: center !important;
+	color: white !important;
+	padding: 10px 15px !important;
+	margin: 40px auto !important;
+	outline: none !important;
+	background: @orange !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	outline: none !important;
+	box-shadow: inset 0 -4px 0 darken(@orange, 10%) !important;
+	transition: background 300ms, box-shadow 300ms !important;
+	cursor: pointer !important;
+	display: block !important;
+	width: 80px !important;
+	letter-spacing: 0 !important;
+
+	&[disabled="disabled"],
+	&[disabled="disabled"]:hover {
+		background: #999 !important;
+		box-shadow: inset 0 -2px 0 darken(#999, 10%) !important;
+		cursor: default !important;
+	}
+
+	&:hover {
+		background: darken(@orange, 5%) !important;
+		box-shadow: inset 0 -2px 0 darken(@orange, 12%) !important;
+	}
+}
+
+#challenge-scoreboard {
+	background: @darkTransparentBackground;
+	padding: 10px 20px;
+	font-size: 16px;
+	font-family: @fontFamily;
+	position: fixed;
+	bottom: 12px;
+	left: 45px;
+	z-index: @zIndexDefault;
+	color: white;
+
+	.score-label:after {
+		content: '/';
+	}
+}
+
+#challenge-directions-wrapper {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 616px;
+	height: 300px;
+	margin-left: -308px;
+	margin-top: -150px;
+	z-index: @zIndexDefault;
+
+	.default-child-properties();
+
+	.challenge-card {
+		background: @darkTransparentBackground;
+		padding: 20px 14px;
+		margin: 2px;
+		float: left;
+		color: rgba(255, 255, 255, 0.9);
+		width: 200px;
+		margin-top: 20px;
+		opacity: 0;
+		transition: all 700ms;
+		text-align: center;
+
+		&.show {
+			margin-top: 0;
+			opacity: 1;
+		}
+
+		h2 {
+			margin: 0;
+			padding: 0;
+			line-height: 120%;
+			color: white;
+			font-size: 16px;
+			font-weight: normal;
+		}
+
+		p {
+			line-height: 120%; 
+			margin: 0;
+			margin-top: 10px;
+			font-size: 12px;
+			font-family: Helvetica;
+			font-weight: normal;
+			text-shadow: none;
+			color: white;
+		}
+
+		img {
+			margin-top: 20px;
+		}
+	}
+
+}
+
+#challenge-help-button, #challenge-reload-button {
+	color: white !important;
+	background: @orange !important;
+	box-shadow: inset 0 -4px 0 darken(@orange, 10%) !important;
+	font-size: 16px !important;
+	font-family: @fontFamily !important;
+	padding: 10px !important;
+	text-align: center !important;
+	border: 0 transparent !important;
+	border-radius: 0px !important;
+	outline: none !important;
+	z-index: @zIndexDefault !important;
+	transition: all 300ms !important;
+	cursor: pointer !important;
+	line-height: 16px !important;
+
+	&.show {
+		opacity: 1 !important;
+	}
+
+	&:hover,
+	&.active {
+		background: darken(@orange, 5%) !important;
+		box-shadow: inset 0 -2px 0 darken(@orange, 12%) !important;
+	}
+}
+
+#challenge-help-button{
+	opacity: 0 !important;
+	position: fixed !important;
+	bottom: 10px !important;
+	left: 10px !important;
+}
+
+#challenge-reload-button {
+	margin-top: 40px !important;
+}
+
+#challenge-game-over {
+	background: white;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 10001;
+	opacity: 0;
+
+	.container {
+		position: absolute;
+		top: 50%;
+		left: 10%;
+		width: 80%;
+		text-align: center;		
+
+		h1 {
+			color: #999;
+			font-size: 21px;
+			font-family: @fontFamily;
+			font-weight: normal;
+			margin: 0;
+			padding: 0;
+			margin-bottom: 20px;
+		}
+
+		a {
+			color: @linkColor;
+			text-decoration: none;
+
+			&:hover {
+				color: #0071BC;
+			}
+		}
+	}
+}
+
+.challenge-active-target {
+	z-index: @zIndexDefault !important;
+
+	&:after {
+		position: absolute !important;
+		top: 0 !important;
+		left: 0 !important;
+		right: 0 !important;
+		bottom: 0 !important;
+		content: ' ' !important;
+		border: 2px solid rgba(255, 0, 0, 0.8) !important;
+		display: block !important;
+	}
+}
+
+.challenge-explosion-wave {
+	transition: all 1s;
+	z-index: @zIndexDefault;
+}
