@@ -1,26 +1,21 @@
 {
 	"manifest_version" : 2,
-
 	"name" : "DOM Destroyer",
 	"version" : "1.0",
 	"description" : "Destroy the Document Object Model.",
-	// Icons
 	"icons" : {
 		"16" : "icon.png",
 		"48" : "icon.png",
 		"128" : "icon.png"
 	},
-	// Browser actions
 	"browser_action" : {
 		"default_icon" : "icon.png"
 	},
-	// Background scripts
 	"background" : {
 		"scripts" : ["main.js"],
 		"css" : ["css/styles.css"]
 	},
 	"homepage_url" : "http://rnolan.com",
-	// Resources
 	"web_accessible_resources" : [
 		"css/styles.css",
 		"images/logo.png",
@@ -40,6 +35,5 @@
 	    "tabs", 
 	    "http://*/*", 
 	    "https://*/*"
-	],
-	"update_url": "http://rnolan.com/dom_destroyer/updates.xml"
+	]
 }
