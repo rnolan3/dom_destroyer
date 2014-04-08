@@ -70,6 +70,7 @@
 	display: block !important;
 	width: 80px !important;
 	letter-spacing: 0 !important;
+	text-shadow: none !important;
 
 	&[disabled="disabled"],
 	&[disabled="disabled"]:hover {
@@ -86,11 +87,11 @@
 
 #challenge-scoreboard {
 	background: @darkTransparentBackground;
-	padding: 10px 20px;
+	padding: 8px 20px;
 	font-size: 16px;
 	font-family: @fontFamily;
 	position: fixed;
-	bottom: 12px;
+	bottom: 10px;
 	left: 45px;
 	z-index: @zIndexDefault;
 	color: white;
@@ -163,6 +164,7 @@
 	font-size: 16px !important;
 	font-family: @fontFamily !important;
 	padding: 10px !important;
+	margin: 0 !important;
 	text-align: center !important;
 	border: 0 transparent !important;
 	border-radius: 0px !important;
@@ -171,6 +173,7 @@
 	transition: all 300ms !important;
 	cursor: pointer !important;
 	line-height: 16px !important;
+	text-shadow: none !important;
 
 	&.show {
 		opacity: 1 !important;
@@ -215,15 +218,17 @@
 			color: #999;
 			font-size: 21px;
 			font-family: @fontFamily;
-			font-weight: normal;
+			font-weight: normal !importantl;
 			margin: 0;
 			padding: 0;
-			margin-bottom: 20px;
+			margin-bottom: 30px;
+			text-align: center;
 		}
 
 		a {
 			color: @linkColor;
 			text-decoration: none;
+			text-shadow: none;
 
 			&:hover {
 				color: #0071BC;

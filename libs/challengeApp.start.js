@@ -280,4 +280,8 @@ function gameOver () {
 if (!$('#' + ChallengeApp._prefix + 'scoreboard').length && !$('#' + ChallengeApp._prefix + 'dialog-wrapper').length)
 	new ChallengeApp.start(); // Let's light this candle!
 else
-	window.reload();
+	location.reload();
+
+
+
+

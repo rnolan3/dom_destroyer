@@ -24,7 +24,7 @@
  */
 ChallengeApp.weapon = function (settings) {
 	this.config = $.extend({
-		dartSpeed: 700,
+		dartSpeed: 800,
 		targetSelector: '.' + ChallengeApp.classes.activeTarget,
 		style: {
 			height: 260,

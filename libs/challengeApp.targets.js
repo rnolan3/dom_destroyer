@@ -79,8 +79,8 @@ ChallengeApp.targets.prototype = {
 		return ($element.css('opacity') == 1 && 
 						$element.offset().left >= 0 &&
 						$element.offset().top >= ChallengeApp.$.Window.scrollTop() &&
-						$element.offset().top < windowHeight &&
-						$element.outerHeight() < windowHeight &&
+						$element.offset().top < windowHeight - 10 &&
+						$element.outerHeight() < windowHeight - 10 &&
 					  $element.outerHeight() > minSize && 
 					  $element.outerWidth() > minSize);
 	},
