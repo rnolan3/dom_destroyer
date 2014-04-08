@@ -1,0 +1,67 @@
+//
+// Mixins
+// --------------------------------------------------
+
+
+// Center Block
+.center-block () {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Default child properties
+.default-child-properties () {
+	* {
+		font-family: @fontFamily;
+		-moz-box-sizing: border-box; 
+		-webkit-box-sizing: border-box; 
+		box-sizing: border-box;
+		letter-spacing: 0;
+	}
+}
+
+// Dialog
+.dialog () {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: @transparentBackground;
+	z-index: @zIndexDialog;
+	text-align: center;	
+}
+
+.button () {
+	background: @orange !important;
+	box-shadow: inset 0 -4px 0 darken(@orange, 10%) !important;
+	font-size: 16px !important;
+	font-family: @fontFamily !important;
+	text-align: center !important;
+	color: white !important;
+	padding: 10px !important;
+	margin: 0 !important;
+	border: 0 transparent !important;
+	border-radius: 0px !important;
+	outline: none !important;
+	z-index: @zIndexDefault !important;
+	transition: all 300ms !important;
+	cursor: pointer !important;
+	letter-spacing: 0 !important;
+	line-height: 16px !important;
+	text-shadow: none !important;
+	display: block !important;
+
+	&[disabled="disabled"],
+	&[disabled="disabled"]:hover {
+		background: #999 !important;
+		box-shadow: inset 0 -2px 0 darken(#999, 10%) !important;
+		cursor: default !important;
+	}
+
+	&:hover,
+	&.active {
+		background: darken(@orange, 5%) !important;
+		box-shadow: inset 0 -2px 0 darken(@orange, 12%) !important;
+	}
+}
