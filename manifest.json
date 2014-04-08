@@ -1,7 +1,7 @@
 {
 	"manifest_version" : 2,
 	"name" : "DOM Destroyer",
-	"version" : "1.0",
+	"version" : "1.0.1",
 	"description" : "Destroy the Document Object Model.",
 	"icons" : {
 		"16" : "icon.png",
