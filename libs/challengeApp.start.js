@@ -33,11 +33,22 @@ ChallengeApp.start.prototype = {
 			ChallengeApp.firstTimePlay = items.isNotFirstTime == true ? false : true;
 		});
 
+		// Blur any focused fields
+		$('input:focus').blur();
+
+		// Esc to cancel game
+		ChallengeApp.$.Window.unbind('keyup.challenge').bind('keyup.challenge', function (e) {
+			if (e.which == 27)
+				ChallengeApp.kill();
+		});
+
 		this.loadType();
 
 		// Show title screen
 		this.titleScreen = new ChallengeApp.titleScreen();
 		this.titleScreen.show();
+
+		ChallengeApp.locals.titleScreen = this.titleScreen;
 
 		// Start game when 'start' button is clicked on
 		this.titleScreen.modal.buttons.$startButton.bind('click', function () {
@@ -77,7 +88,8 @@ ChallengeApp.start.prototype = {
 		ChallengeApp.locals.targets    = new ChallengeApp.targets();
 		ChallengeApp.locals.scoreboard = new ChallengeApp.scoreboard();
 
-		new ChallengeApp.weapon();
+		ChallengeApp.locals.weapon     = new ChallengeApp.weapon();
+		ChallengeApp.locals.directions = this.directions;
 	},
 
 	loadType : function () {
@@ -191,7 +203,7 @@ ChallengeApp.titleScreen.prototype = {
 		var that = this;
 		this.modal.buttons.$startButton = $("<button />", { 
 			'id' : 'challenge-start-button'
-		}).text('Start');
+		}).text('Start DEMO');
 
 		this.modal.$wrapper.append(this.modal.buttons.$startButton);
 	}
@@ -229,7 +241,7 @@ ChallengeApp.scoreboard.prototype = {
 
 		// Make these elements public
 		this.$currentScore = $scoreLabel;
-
+		this.$scoreBoard = $scoreBoard;
 	},
 
 	// Get target count from targets object
@@ -240,6 +252,10 @@ ChallengeApp.scoreboard.prototype = {
 	// Update score
 	update : function () {
 		this.$currentScore.text(this.totalTargets - this.getTargetCount());
+	},
+
+	remove : function () {
+		this.$scoreBoard.remove();
 	}
 }
 

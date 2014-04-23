@@ -163,5 +163,10 @@ ChallengeApp.directions.prototype = {
 		} else if (typeof callback == "function") {
 			callback.call(this);
 		};
+	},
+
+	remove : function () {
+		this.$helpButton.remove();
+		this.$directionsPopup.remove();
 	}
 }

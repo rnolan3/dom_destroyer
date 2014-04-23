@@ -13,5 +13,6 @@ chrome.browserAction.onClicked.addListener(function(activeTab) {
 	chrome.tabs.executeScript(null, { file: "libs/challengeApp.directions.js" })
 	chrome.tabs.executeScript(null, { file: "libs/challengeApp.targets.js" });
   chrome.tabs.executeScript(null, { file: "libs/challengeApp.weapon.js" });
+  chrome.tabs.executeScript(null, { file: "libs/challengeApp.kill.js" });  
   chrome.tabs.executeScript(null, { file: "libs/challengeApp.start.js" });  
 });

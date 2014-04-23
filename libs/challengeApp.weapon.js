@@ -89,7 +89,7 @@ ChallengeApp.weapon.prototype = {
 
 		var p1 = {}, p2 = {};
 
-		ChallengeApp.$.Window.bind('mousemove', function (event) {
+		ChallengeApp.$.Window.unbind('mousemove.challenge').bind('mousemove.challenge', function (event) {
 			// Start point
 			p1 = {
 				y: 0,
@@ -222,5 +222,18 @@ ChallengeApp.weapon.prototype = {
 						$dart.offset().top <= $target.offset().top + $target.outerHeight() &&
 						$dart.offset().left >= $target.offset().left &&
 						$dart.offset().left <= $target.offset().left + $target.outerWidth())
+	},
+
+	remove : function () {
+		// Unbind window events
+		ChallengeApp.$.Window.unbind('click keydown mousemove.challenge');
+		
+		// remove target classes
+		$(this.target).removeClass(ChallengeApp.classes.activeTarget);
+		$(this.target).removeClass(ChallengeApp.classes.selectedTarget);
+
+		// Remove generated elements
+		this.$backdrop.remove();
+		this.$gun.remove();
 	}
 };
