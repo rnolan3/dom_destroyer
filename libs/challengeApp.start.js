@@ -203,7 +203,7 @@ ChallengeApp.titleScreen.prototype = {
 		var that = this;
 		this.modal.buttons.$startButton = $("<button />", { 
 			'id' : 'challenge-start-button'
-		}).text('Start DEMO');
+		}).text('Start');
 
 		this.modal.$wrapper.append(this.modal.buttons.$startButton);
 	}
